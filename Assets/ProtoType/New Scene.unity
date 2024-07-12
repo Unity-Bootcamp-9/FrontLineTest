@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createButton: {fileID: 150287788}
-  boxPrefab: {fileID: 2729992416555060675, guid: d7e3a2f4f62912f42ba730e4c15a056d,
+  boxPrefab: {fileID: 5942503088497467532, guid: 6187f14ca07081d44bb7a0b27bb0193a,
     type: 3}
   player: {fileID: 0}
 --- !u!1 &834128523

@@ -33,6 +33,8 @@ public class Monster : MonoBehaviour
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
+        moveSpeed = 2f;
+        attackRange = 2f;
     }
 
     private void OnEnable()

@@ -60,9 +60,9 @@ public class Gun : MonoBehaviour
             if(Physics.Raycast(Camera.main.gameObject.transform.position, direction, out hit, 20f))
             {
                 Debug.Log("Hit1");
-                if (hit.transform.TryGetComponent<EnemyObject>(out EnemyObject enemy))
+                if (hit.transform.TryGetComponent<Monster>(out Monster monster))
                 {
-                    enemy.Hit();
+                    monster.Hit();
                     Debug.Log("Hit2");
                 }
             }
