@@ -2,21 +2,21 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class TeslaCanon : Weapon
 {
     public PlayerController player;
     public GameObject bulletPrefab;
     public Transform gunTip;
     public Transform target;
     private int currentBulletCount;
-    private bool isCoolingDown = false; 
-    private bool isReloading = false; 
+    private bool isCoolingDown = false;
+    private bool isReloading = false;
     public TextMeshProUGUI bulletUI;
-    
-    [Header ("DataField")]
+
+    [Header("DataField")]
     private const int bulletCount = 6;
     public float fireDelay = 0.5f;
-    public float reloadTime = 2f; 
+    public float reloadTime = 2f;
     public float attackDamage;
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
         bulletUI.text = $"{currentBulletCount} / {bulletCount}";
     }
 
-    private void OnFire()
+    protected override void OnFire()
     {
         if (isCoolingDown || isReloading)
         {
@@ -57,7 +57,7 @@ public class Gun : MonoBehaviour
 
             RaycastHit hit;
 
-            if(Physics.Raycast(Camera.main.gameObject.transform.position, direction, out hit, 20f))
+            if (Physics.Raycast(Camera.main.gameObject.transform.position, direction, out hit, 20f))
             {
                 Debug.Log("Hit1");
                 if (hit.transform.TryGetComponent<Monster>(out Monster monster))
@@ -90,6 +90,7 @@ public class Gun : MonoBehaviour
         }
 
         bullet.transform.position = targetPosition;
+        Destroy(bullet);
     }
 
     private IEnumerator CoolDown()
@@ -108,4 +109,5 @@ public class Gun : MonoBehaviour
         isReloading = false;
         Debug.Log("Reloaded!");
     }
+
 }
